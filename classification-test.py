@@ -11,7 +11,7 @@ import model.metric as metricModule
 from parse_config import ConfigParser
 import data_loader.data_loaders as dataModule
 import model.social_stgcnn_classification as architectureModule
-import data.datasets.custom_dataset as customDataset
+import data.custom_dataset as customDataset
 from sklearn.utils.class_weight import compute_class_weight
 from sklearn.metrics import precision_score, recall_score, precision_recall_curve, auc, f1_score, accuracy_score, balanced_accuracy_score
 

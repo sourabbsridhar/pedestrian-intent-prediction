@@ -13,7 +13,7 @@ import model.metric as metricModule
 import torch.nn.functional as F
 from parse_config import ConfigParser
 import model.social_stgcnn_classification as architectureModule
-import data.datasets.custom_dataset as customDataset
+import data.custom_dataset as customDataset
 from sklearn.utils.class_weight import compute_class_weight
 
 # Fix random seeds for reproducibility

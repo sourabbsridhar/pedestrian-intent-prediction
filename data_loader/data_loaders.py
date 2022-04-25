@@ -7,7 +7,7 @@ import numpy as np
 from base import BaseDataLoader
 from torchvision import datasets, transforms
 from torch_geometric.data import Data, DataLoader
-import data.datasets.custom_dataset as customDataset
+import data.custom_dataset as customDataset
 
 class MnistDataLoader(BaseDataLoader):
     """
@@ -119,7 +119,7 @@ class JaadDataLoader(BaseDataLoader):
         # d = utils.jaad_annotation_converter(self.dataset.__getitem__())
 
         '''
-        
+
         self.graph_dataset = {}
 
         for video_id, video_value in d.items():
