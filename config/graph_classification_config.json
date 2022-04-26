@@ -3,7 +3,7 @@
     "n_gpu": 1,
     "arch":
     {
-        "type": "social_stgcn",
+        "type": "intent_classifier",
         "args": {}
     },
     "dataset":
@@ -28,8 +28,8 @@
             "root": "data/datasets/",
             "batchSize": 1,
             "shuffle": false,
-            "validationSplit": 0.3, 
-            "numberOfWorkers": 1, 
+            "validationSplit": 0.3,
+            "numberOfWorkers": 1,
             "training": true
         }
     },

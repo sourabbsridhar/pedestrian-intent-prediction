@@ -9,9 +9,9 @@ from torch_geometric_temporal.nn.recurrent import GCLSTM, GConvLSTM
 
 filters = 32
 
-class social_stgcn(torch.nn.Module):
+class intent_classifier(torch.nn.Module):
     def __init__(self, input_feat=2, linear_input=0 ,  Conv_outputs=[5], LSTM_output=[5], K=1, linear_output=3):
-        super(social_stgcn, self).__init__()
+        super(intent_classifier, self).__init__()
 
         self.input_feat = input_feat
         self.linear_input = linear_input
@@ -55,7 +55,7 @@ class social_stgcn(torch.nn.Module):
 
         output = torch.empty([no_pedestrians, 3, 1], device="cuda")
         x = self.linear(x)
-        
+
         for i in range(no_pedestrians):
             output[i] = self.softmax(x[i].reshape([3, 1]))
         x = output

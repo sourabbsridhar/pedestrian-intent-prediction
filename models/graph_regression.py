@@ -9,10 +9,10 @@ from torch_geometric_temporal.nn.recurrent import GCLSTM, GConvLSTM
 filters = 32
 
 
-class social_stgcn(torch.nn.Module):
+class intent_predictor(torch.nn.Module):
     def __init__(self, input_feat=2, Conv_outputs=[5], LSTM_output=[5],
                  K=1, linear_output=3):
-        super(social_stgcn, self).__init__()
+        super(intent_predictor, self).__init__()
 
         self.input_feat = input_feat
         self.Conv_outputs = Conv_outputs
