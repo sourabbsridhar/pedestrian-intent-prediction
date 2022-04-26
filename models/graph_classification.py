@@ -1,5 +1,3 @@
-
-# Import libraries
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -8,7 +6,6 @@ from torch_geometric.nn import GCNConv, Sequential
 from torch_geometric_temporal.nn.recurrent import GCLSTM, GConvLSTM
 
 filters = 32
-
 class intent_classifier(torch.nn.Module):
     def __init__(self, input_feat=2, linear_input=0 ,  Conv_outputs=[5], LSTM_output=[5], K=1, linear_output=3):
         super(intent_classifier, self).__init__()
@@ -33,13 +30,14 @@ class intent_classifier(torch.nn.Module):
 
         self.softmax = nn.LogSoftmax(dim=0)
 
-
-
     def forward(self, data, no_pedestrians, device):
         x, edge_index = data.x.cuda(), data.edge_index.cuda()
+
+        # Zero padding the input to fit the input features
         x = torch.cat([x, torch.zeros(size=(self.input_feat-x.size()[0], x.size()[1]), device=device)], 0)
         x = torch.cat([x, torch.zeros(size=(x.size()[0], self.input_feat - x.size()[1]), device=device)], 1)
 
+        # Initializing the training variables
         h = [None for i in range(self.no_lstm)]
         c = [None for i in range(self.no_lstm)]
 
